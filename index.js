@@ -58,7 +58,7 @@ var Computer = /** @class */ (function () {
     Computer.prototype.getExtra = function () {
         var _a = this, demands = _a.demands, supplies = _a.supplies;
         var extraNames = Array.from(supplies.keys()).filter(function (name) { return supplies.get(name) > (demands.get(name) || 0); });
-        return extraNames.map(function (name) { return ({ name: name, weight: supplies.get(name) - (demands.get(name) || 0) }); });
+        return new Map(extraNames.map(function (name) { return [name, supplies.get(name) - (demands.get(name) || 0)]; }));
     };
     return Computer;
 }());
@@ -80,5 +80,6 @@ console.log({
     资源转换工具: new Map(Array.from(computer.providers.keys()).map(function (name) { return [name, Math.ceil(computer.providers.get(name) / time)]; })),
     满足需求需要的总资源: computer.needs,
     平均每秒需要提供资源: new Map(Array.from(computer.needs.keys()).map(function (name) { return [name, Math.ceil(computer.needs.get(name) / time)]; })),
-    满足需求后的额外产出: computer.getExtra()
+    满足需求后的额外产出: computer.getExtra(),
+    平均每秒额外产出的氢气可发电: (computer.getExtra().get('氢气') / 100 / time) * 800
 });

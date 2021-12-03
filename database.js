@@ -2,17 +2,17 @@
 /** 单位：克，焦，秒，千卡，DTU */
 exports.__esModule = true;
 exports.database = [
-    // {
-    //   name: '复制人',
-    //   import: [
-    //     { name: '食物', weight: 1000 / 600 },
-    //     { name: '氧气', weight: 100 }
-    //   ],
-    //   export: [
-    //     { name: '二氧化碳', weight: 2 },
-    //     { name: '污染土', weight: 6.7 * 1000 }
-    //   ]
-    // },
+    {
+        name: '复制人',
+        "import": [
+            { name: '食物', weight: 1000 / 600 },
+            { name: '氧气', weight: 100 }
+        ],
+        "export": [
+            { name: '二氧化碳', weight: 2 },
+            { name: '污染土', weight: 6.7 * 1000 }
+        ]
+    },
     {
         name: '氢气发电机',
         "import": [
